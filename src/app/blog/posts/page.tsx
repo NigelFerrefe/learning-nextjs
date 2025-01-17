@@ -14,7 +14,18 @@ export default async function Page() {
       {client && <h1 className="text-green-500">Connected to database</h1>}
       <h1>Posts</h1>
       <Button className="outline outline-1  border-purple-700 text-purple-700 hover:bg-purple-700 hover:text-white my-5 py-2 px-4 rounded">New +</Button>
-      {posts?.map((post) => <Post key={post.id} {...post} />)}
+      {posts?.map((post) => (
+        <Post 
+          key={post.id} 
+          id={post.id} 
+          title={post.title} 
+          content={post.content} 
+          date={post.date} 
+        />
+      ))}
     </>
   );
 }
+
+//In <Post></Post> we have to define the props that we are passing to the component
+//If we don't do that, we will get an error because the component is expecting props
