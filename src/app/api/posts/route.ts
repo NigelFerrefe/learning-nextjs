@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   const author = searchParams.get('author')
 
   
-
+  //Protect the api as well
   try {
     if(!session) {
       return NextResponse.json({ message: "User not authenticated" }, { status: 401 });
